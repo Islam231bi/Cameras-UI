@@ -1,3 +1,3 @@
 # Cameras-UI
-go to Used_Cameras_UI directory.<br>
-run ui file,<br>
+1- Go to Used_Cameras_UI directory.<br>
+2- run ui file.<br>

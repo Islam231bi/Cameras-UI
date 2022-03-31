@@ -34,8 +34,10 @@ class CameraWindow(QWidget):
         self.exit_button = self.ui.findChild(QAction, 'actionExit')
 
         # self.url_list = ['rtsp://192.168.1.10:8554/test1', 'rtsp://192.168.1.10:8554/test2', 'rtsp://192.168.1.10:8554/test3', 'rtsp://192.168.1.10:8554/test4', 'rtsp://192.168.1.10:8554/test5', 'rtsp://192.168.1.10:8554/test6', 'rtsp://192.168.1.10:8554/test7', 'rtsp://192.168.1.10:8554/test8']
-        self.url_list = ['/home/islam/Downloads/sample.mp4', '/home/islam/Downloads/sample.mp4', 0, '/home/islam/Downloads/sample.mp4',
-                         '/home/islam/Downloads/sample.mp4', '/home/islam/Downloads/sample.mp4', '/home/islam/Downloads/sample.mp4', '/home/islam/Downloads/sample.mp4']
+        self.url_list = ['/home/islam/Downloads/sample.mp4', '/home/islam/Downloads/sample.mp4', 0,
+                         '/home/islam/Downloads/sample.mp4', '/home/islam/Downloads/sample.mp4',
+                         '/home/islam/Downloads/sample.mp4', '/home/islam/Downloads/sample.mp4',
+                         '/home/islam/Downloads/sample.mp4']
         self.camera1 = cameraThread(self.url_list)
 
         self.camera1.ImageUpdate.connect(self.ImageUpdateSlot1)

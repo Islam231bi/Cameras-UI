@@ -12,19 +12,24 @@ class backend:
         #                  'rtsp://192.168.1.10:8554/test5', 'rtsp://192.168.1.10:8554/test6',
         #                  'rtsp://192.168.1.10:8554/test7', 'rtsp://192.168.1.10:8554/test8']
 
-        self.url_list = ['/home/islam/Downloads/sample.mp4', '/home/islam/Downloads/sample.mp4', 0,
+        self.url_list = ['/home/islam/Downloads/sample.mp4', '/home/islam/Downloads/sample.mp4',
                          '/home/islam/Downloads/sample.mp4', '/home/islam/Downloads/sample.mp4',
-                         '/home/islam/Downloads/sample.mp4', '/home/islam/Downloads/sample.mp4',
-                         '/home/islam/Downloads/sample.mp4']
+                         '/home/islam/Downloads/sample.mp4','/home/islam/Downloads/sample.mp4',
+                         '/home/islam/Downloads/sample.mp4','/home/islam/Downloads/sample.mp4']
+
         self.camerasCheckBox = []
         self.confirm_button = self.ui.findChild(QPushButton, 'confirm')
         self.exit_button = self.ui.findChild(QPushButton, 'exit')
+        self.reset_button = self.ui.findChild(QPushButton, 'reset')
+        self.select_all_button = self.ui.findChild(QPushButton, 'select_all')
 
         for i in range(8):
             self.camerasCheckBox.append(self.ui.findChild(QCheckBox, 'camera_' + str(i + 1)))
 
         self.exit_button.clicked.connect(self.exit)
         self.confirm_button.clicked.connect(self.updateCameras)
+        self.reset_button.clicked.connect(self.reset)
+        self.select_all_button.clicked.connect(self.select)
 
     def exit(self):
         self.ui.close()
@@ -36,3 +41,11 @@ class backend:
                 self.isOpen[i] = 1
             if not self.camerasCheckBox[i].isChecked():
                 self.isOpen[i] = 0
+
+    def reset(self):
+        for box in self.camerasCheckBox:
+            box.setChecked(False)
+
+    def select(self):
+        for box in self.camerasCheckBox:
+            box.setChecked(True)

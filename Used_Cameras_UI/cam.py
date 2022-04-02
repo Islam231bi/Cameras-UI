@@ -14,6 +14,8 @@ cap = cv2.VideoCapture(sys.argv[1])
 if not (cap.isOpened()):
     print("couldn't open")
 
+cv2.namedWindow(sys.argv[1], cv2.WINDOW_FREERATIO)
+
 while (True):
 
     # Capture frame-by-frame
@@ -21,7 +23,7 @@ while (True):
 
     # Display the resulting frame
 
-    cv2.imshow('preview', frame)
+    cv2.imshow(sys.argv[1], frame)
     width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
     height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
 

@@ -12,15 +12,15 @@ class backend:
         self.ui = ui
         self.isOpen = [0] * 8
         self.pid = [0] * 8
-        self.url_list = ['rtsp://192.168.1.10:8554/test1', 'rtsp://192.168.1.10:8554/test2',
-                         'rtsp://192.168.1.10:8554/test3', 'rtsp://192.168.1.10:8554/test4',
-                         'rtsp://192.168.1.10:8554/test5', 'rtsp://192.168.1.10:8554/test6',
-                         'rtsp://192.168.1.10:8554/test7', 'rtsp://192.168.1.10:8554/test8']
+        # self.url_list = ['rtsp://192.168.1.10:8554/test1', 'rtsp://192.168.1.10:8554/test2',
+        #                  'rtsp://192.168.1.10:8554/test3', 'rtsp://192.168.1.10:8554/test4',
+        #                  'rtsp://192.168.1.10:8554/test5', 'rtsp://192.168.1.10:8554/test6',
+        #                  'rtsp://192.168.1.10:8554/test7', 'rtsp://192.168.1.10:8554/test8']
 
-        # self.url_list = ['/home/islam/Downloads/sample.mp4', '/home/islam/Downloads/sample.mp4',
-        #                  '/home/islam/Downloads/sample.mp4', '/home/islam/Downloads/sample.mp4',
-        #                  '/home/islam/Downloads/sample.mp4','/home/islam/Downloads/sample.mp4',
-        #                  '/home/islam/Downloads/sample.mp4','/home/islam/Downloads/sample.mp4']
+        self.url_list = ['/dev/video0', '/home/islam/Downloads/sample.mp4',
+                         '/home/islam/Downloads/sample.mp4', '/home/islam/Downloads/sample.mp4',
+                         '/home/islam/Downloads/sample.mp4','/home/islam/Downloads/sample.mp4',
+                         '/home/islam/Downloads/sample.mp4','/home/islam/Downloads/sample.mp4']
 
         self.camerasCheckBox = []
         self.confirm_button = self.ui.findChild(QPushButton, 'confirm')

@@ -1,23 +1,27 @@
-import matplotlib.pyplot as plt
-import matplotlib.animation as animation
 import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.animation
 
-fig = plt.figure(figsize=(4, 4))
-ax = fig.add_subplot(111, projection='polar')
-ax.set_ylim(0, 100)
+r =0
+t = 1
 
-data = np.random.rand(50) * 6 + 2
-theta = np.linspace(0, 2. * np.pi, num=50)
-l, = ax.plot([], [])
+fig = plt.figure()
+ax = fig.gca(projection = 'polar')
+fig.canvas.set_window_title('Doppler')
+ax.plot(r, t, color ='b', marker = 'o', markersize = '3')
+ax.set_theta_zero_location('N')
+ax.set_theta_direction(-1)
+ax.set_ylim(0,1.02*t)
 
+line1, = ax.plot([0, 0],[0,t], color = 'r', linewidth = 2)
 
-def update(i):
-    global data
-    data += (np.random.rand(50) + np.cos(i * 2. * np.pi / 50.)) * 2
-    data[-1] = data[0]
-    l.set_data(theta, data)
-    return l,
+def update(angle):
+    line1.set_data([angle],[0,t])
+    return line1,
 
+frames = np.array([ 94.3123  * (np.pi/180),  120  * (np.pi/180),  220  * (np.pi/180),  0  * (np.pi/180)])
 
-ani = animation.FuncAnimation(fig, update, frames=50, interval=1000, blit=True)
+fig.canvas.draw()
+ani = matplotlib.animation.FuncAnimation(fig, update, frames=frames, blit=True, interval=500)
+
 plt.show()

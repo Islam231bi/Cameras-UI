@@ -4,7 +4,7 @@ from PySide6.QtCore import QFile
 from PySide6.QtUiTools import QUiLoader
 from PySide6.QtWidgets import QApplication
 
-from Used_Cameras_UI.backend import backend
+from backend import backend
 
 
 class App:

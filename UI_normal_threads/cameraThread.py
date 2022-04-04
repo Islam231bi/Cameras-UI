@@ -110,7 +110,15 @@ class cameraThread(QThread):
                 Pic8 = ConvertToQtFormat8.scaled(480, 517, Qt.IgnoreAspectRatio)
                 self.ImageUpdate8.emit(Pic8)
 
-        # capture.release()
+        capture.release()
+        capture2.release()
+        capture3.release()
+        capture4.release()
+        capture5.release()
+        capture6.release()
+        capture7.release()
+        capture8.release()
+
 
     def stop(self):
         self.ThreadActive = False

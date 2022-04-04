@@ -3,6 +3,7 @@ import signal
 import subprocess
 
 import cv2
+import numpy as np
 from PySide6.QtWidgets import *
 import multiprocessing as mp
 
@@ -36,18 +37,26 @@ class backend:
         self.reset_button.clicked.connect(self.reset)
         self.select_all_button.clicked.connect(self.select)
 
+
     def exit(self):
         self.ui.close()
 
     def updateCameras(self):
+        x = 10
+        y = 10
         for i in range(8):
             if self.camerasCheckBox[i].isChecked() and self.isOpen[i] == 0:
-                p = subprocess.Popen(["python3", "cam.py", str(self.url_list[i])])
+                p = subprocess.Popen(["python3", "cam.py", str(self.url_list[i]), str(x), str(y)])
                 self.pid[i] = p.pid
                 self.isOpen[i] = 1
             if not self.camerasCheckBox[i].isChecked() and self.isOpen[i] == 1:
                 os.kill(self.pid[i], signal.SIGTERM)
                 self.isOpen[i] = 0
+            if i == 3:
+                y = 350
+                x = 10
+            else:
+                x += 400
 
     def reset(self):
         for box in self.camerasCheckBox:

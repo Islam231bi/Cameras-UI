@@ -24,6 +24,8 @@ while (True):
     # Display the resulting frame
 
     cv2.imshow(sys.argv[1], frame)
+    cv2.moveWindow(sys.argv[1], int(sys.argv[2]), int(sys.argv[3]))
+    cv2.setWindowProperty(sys.argv[1], cv2.WND_PROP_TOPMOST, 1)
     width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
     height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
 
